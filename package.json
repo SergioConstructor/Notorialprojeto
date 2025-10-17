@@ -1,0 +1,6 @@
+{
+  "name": "notorialprojeto",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Monorepo root for meu-cartorio-app. Dependencies are defined in meu-cartorio-app/package.json."
+}
