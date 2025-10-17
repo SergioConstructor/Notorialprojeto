@@ -1,16 +1,17 @@
 import React from "react";
-import { base44 } from "@/api/base44Client";
-import { useQuery } from "@tanstack/react-query";
 import { FileText, Clock, CheckCircle, AlertCircle } from "lucide-react";
 import StatsCard from "../Components/dashboard/StatsCard";
 import EscriturasList from "../Components/dashboard/EscriturasList";
 
 export default function Dashboard() {
-  const { data: escrituras = [], isLoading } = useQuery({
-    queryKey: ['escrituras'],
-    queryFn: () => base44.entities.Escritura.list("-created_date", 50),
-    initialData: [],
-  });
+  // Mock de escrituras
+  const escrituras = [
+    { id: 1, titulo: "Escritura de Compra", status: "aguardando_revisao" },
+    { id: 2, titulo: "Escritura de Venda", status: "aprovada" },
+    { id: 3, titulo: "Escritura de Doação", status: "processando" },
+    { id: 4, titulo: "Escritura de Permuta", status: "aguardando_revisao" },
+    { id: 5, titulo: "Escritura de Financiamento", status: "aprovada" },
+  ];
 
   const stats = {
     total: escrituras.length,
@@ -58,7 +59,7 @@ export default function Dashboard() {
           />
         </div>
 
-        <EscriturasList escrituras={escrituras} isLoading={isLoading} />
+        <EscriturasList escrituras={escrituras} isLoading={false} />
       </div>
     </div>
   );
